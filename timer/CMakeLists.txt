@@ -1,6 +1,9 @@
 add_library(timer
     timer.cc
 )
+target_include_directories(timer PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
 
 add_executable(test_timer
     test_timer.cc
