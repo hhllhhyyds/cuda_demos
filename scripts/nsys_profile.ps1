@@ -1,0 +1,1 @@
+C:\"Program Files"\"NVIDIA Corporation"\"Nsight Systems 2023.4.4"\target-windows-x64\nsys.exe profile -o build/profile --stats=true --trace=cuda --force-overwrite=true $args[0]
