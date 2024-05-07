@@ -4,17 +4,7 @@
 #include <cstring>
 
 #include "timer.h"
-
-#define CHECK(call)                                                            \
-    {                                                                          \
-        const cudaError_t error = call;                                        \
-        if (error != cudaSuccess)                                              \
-        {                                                                      \
-            printf("Error: %s:%d, ", __FILE__, __LINE__);                      \
-            printf("code:%d, reason: %s\n", error, cudaGetErrorString(error)); \
-            exit(1);                                                           \
-        }                                                                      \
-    }
+#include "simple_assert.h"
 
 void checkResult(float *hostRef, float *gpuRef, const int N)
 {
@@ -65,9 +55,9 @@ int main(int argc, char **argv)
     // set up device
     int dev = 0;
     cudaDeviceProp deviceProp;
-    CHECK(cudaGetDeviceProperties(&deviceProp, dev));
+    CUDA_CHECK(cudaGetDeviceProperties(&deviceProp, dev));
     printf("Using Device %d: %s\n", dev, deviceProp.name);
-    CHECK(cudaSetDevice(dev));
+    CUDA_CHECK(cudaSetDevice(dev));
 
     // set up date size of vectors
     int nElem = 1 << 24;
