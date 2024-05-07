@@ -8,3 +8,4 @@ set(CUDA_SEPARABLE_COMPILATION ON)
 
 add_subdirectory(sum_array)
 add_subdirectory(timer)
+add_subdirectory(gpu_device_info)
