@@ -17,3 +17,11 @@ add_test(
     COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/test_gpu_device_info${CMAKE_EXECUTABLE_SUFFIX}
 )
 
+add_executable(check_device_info
+    check_device_info.cu
+)
+add_test(
+    NAME check_device_info
+    COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/check_device_info${CMAKE_EXECUTABLE_SUFFIX}
+)
+
